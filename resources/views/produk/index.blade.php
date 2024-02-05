@@ -32,8 +32,8 @@
                 <td>{{$row->stok}}</td>
                 <td>{{$row->deskripsi}}</td>
                 <td>
-                    <a href="" class="btn btn-warning">Edit</a>
-                    <a href="" class="btn btn-danger">Delete</a>
+                    <a href="/produk-edit/{{ $row->id }}" class="btn btn-warning">Edit</a>
+                    <a href="/produk-delete/{{ $row->id }}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             @endforeach
