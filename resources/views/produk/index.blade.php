@@ -8,7 +8,9 @@
       </div>
       <!-- /.card-header -->
       <div class="card-body">
-        <a href="/produk-tambah" class="btn btn-success">Tambah +</a>
+        @if(Auth::user()->role === 'admin')
+          <a href="/produk-tambah" class="btn btn-success">Tambah +</a>
+        @endif
         <table id="example2" class="table table-bordered table-hover">
           <thead>
           <tr>
@@ -17,7 +19,9 @@
             <th>Harga</th>
             <th>Stok</th>
             <th>Deskripsi</th>
-            <th>Aksi</th>
+            @if(Auth::user()->role === 'admin')
+              <th>Aksi</th>
+            @endif
           </tr>
           </thead>
           <tbody>
@@ -31,10 +35,12 @@
                 <td>{{$row->harga}}</td>
                 <td>{{$row->stok}}</td>
                 <td>{{$row->deskripsi}}</td>
+                @if(Auth::user()->role === 'admin')
                 <td>
                     <a href="/produk-edit/{{ $row->id }}" class="btn btn-warning">Edit</a>
                     <a href="/produk-delete/{{ $row->id }}" class="btn btn-danger">Delete</a>
                 </td>
+                @endif
             </tr>
             @endforeach
 
